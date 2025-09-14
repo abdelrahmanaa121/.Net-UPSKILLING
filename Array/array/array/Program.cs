@@ -10,15 +10,15 @@ namespace Array_Ass
     {
         static void Main(string[] args)
         {
-            //Console.Write("Task 1: Count Even and Odd Numbers");
-            //t1();
-            //Console.Write("Task 2: Find the Maximum and Minimum");
-            //t2();
-            //Console.Write("Task 3: Sum of Each Row in a 2D Array");
-            //t3();
-            //Console.Write("Task 4: Search for a Number");
-            //t4();
-            //Console.Write("Task 5: Diagonal Elements of a 2D Array");
+            Console.Write("Task 1: Count Even and Odd Numbers");
+            t1();
+            Console.Write("Task 2: Find the Maximum and Minimum");
+            t2();
+            Console.Write("Task 3: Sum of Each Row in a 2D Array");
+            t3();
+            Console.Write("Task 4: Search for a Number");
+            t4();
+            Console.Write("Task 5: Diagonal Elements of a 2D Array");
             t5();
         }
         #region MyHelpFun
