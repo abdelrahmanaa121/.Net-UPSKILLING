@@ -225,15 +225,15 @@ namespace Enum_struct
                 emp[i].department = (Department)depChoice;
             }
             //print
-            Console.WriteLine("\n ... Employee  info...");
-            for (int i = 0; i < emp.Length; i++)
-            {
-                Console.WriteLine($"\n Employee {i + 1} data: ");
-                Console.WriteLine($"ID: {emp[i].EmployeeID}");
-                Console.WriteLine($"Name: {emp[i].name}");
-                Console.WriteLine($"Salary: {emp[i].salary}");
-                Console.WriteLine($"Department: {emp[i].department}");
-            }
+            //Console.WriteLine("\n ... Employee  info...");
+            //for (int i = 0; i < emp.Length; i++)
+            //{
+            //    Console.WriteLine($"\n Employee {i + 1} data: ");
+            //    Console.WriteLine($"ID: {emp[i].EmployeeID}");
+            //    Console.WriteLine($"Name: {emp[i].name}");
+            //    Console.WriteLine($"Salary: {emp[i].salary}");
+            //    Console.WriteLine($"Department: {emp[i].department}");
+            //}
             //total salaries for all the employees
             double totsal = 0;
             for (int i = 0; i < emp.Length; i++)
