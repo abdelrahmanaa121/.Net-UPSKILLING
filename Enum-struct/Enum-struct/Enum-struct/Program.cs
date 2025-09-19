@@ -61,13 +61,13 @@ namespace Enum_struct
 
         static void Main(string[] args)
         {
-            //Console.Write("Assignment 1: Store and Display Book Information");
-            //Ass1();
+            Console.WriteLine("\nAssignment 1: Store and Display Book Information");
+            Ass1();
 
-            //Console.Write("Assignment 2: Student Grades");
-            //Ass2();
+            Console.WriteLine("\nAssignment 2: Student Grades");
+            Ass2();
 
-            //Console.Write("Assignment 3: Employee Database with Department");
+            Console.WriteLine("\nAssignment 3: Employee Database with Department");
             Ass3();
 
 
@@ -174,7 +174,7 @@ namespace Enum_struct
                     topstudent = st[i].name;
                 }
             }
-            Console.WriteLine($"The student with the highest average is {topstudent} with {higavg:F2}");
+            Console.WriteLine($"\nThe student with the highest average is {topstudent} with {higavg:F2}");
         }
         static void Ass3()
         {
@@ -240,7 +240,7 @@ namespace Enum_struct
             {
                 totsal += emp[i].salary;
             }
-            Console.WriteLine($"Total salaries for all the employees = {totsal}");
+            Console.WriteLine($"\nTotal salaries for all the employees = {totsal}");
             //name of department with the highest paid employee
             double maxSalary = emp[0].salary;
             string highestPaidName = emp[0].name;
@@ -254,7 +254,7 @@ namespace Enum_struct
                     highestPaidDept = emp[i].department;
                 }
             }
-            Console.WriteLine($"Highest Paid Employee is {highestPaidName} in {highestPaidDept} with {maxSalary} salary");
+            Console.WriteLine($"\nHighest Paid Employee is {highestPaidName} in {highestPaidDept} with {maxSalary} salary");
         }
 
 
