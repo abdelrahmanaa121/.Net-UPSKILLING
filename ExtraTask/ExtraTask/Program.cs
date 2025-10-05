@@ -10,26 +10,26 @@ namespace ExtraTask
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("1. Reverse an Array");
-            q1();
-            Console.WriteLine("2. Find Second Largest Element");
-            q2();
-            Console.WriteLine("3.Count Even and Odd Numbers");
-            q3();
-            Console.WriteLine("4.Rotate Array to the Right");
-            q4();
-            Console.WriteLine("5.Check if Array is Sorted");
-            q5();
-            Console.WriteLine("6.Find Row with Maximum Sum (2D Array)");
-            q6();
-            Console.WriteLine("7.Transpose a Matrix(2D Array)");
-            q7();
-            Console.WriteLine("8.Find Duplicate Elements in Array)");
+            //Console.WriteLine("1. Reverse an Array");
+            //q1();
+            //Console.WriteLine("2. Find Second Largest Element");
+            //q2();
+            //Console.WriteLine("3.Count Even and Odd Numbers");
+            //q3();
+            //Console.WriteLine("4.Rotate Array to the Right");
+            //q4();
+            //Console.WriteLine("5.Check if Array is Sorted");
+            //q5();
+            //Console.WriteLine("6.Find Row with Maximum Sum (2D Array)");
+            //q6();
+            //Console.WriteLine("7.Transpose a Matrix(2D Array)");
+            //q7();
+            //Console.WriteLine("8.Find Duplicate Elements in Array)");
             q8();
-            Console.WriteLine("9. Pascal’s Triangle (2D Array))");
-            q9();
-            Console.WriteLine("10. Snake Pattern Matrix (2D Array))");
-            q10();
+            //Console.WriteLine("9. Pascal’s Triangle (2D Array))");
+            //q9();
+            //Console.WriteLine("10. Snake Pattern Matrix (2D Array))");
+            //q10();
 
         }
         #region MyHelpFun
@@ -218,14 +218,19 @@ namespace ExtraTask
             int lenght = arrlenght1d();
             int[] arr = new int[lenght];
             FillArray1d(arr);
-            Print1DArray(arr);
             //Rotate an array k steps to the right
             Console.WriteLine($"Enter K steps to the right  : ");
             int k = int_Check();
-            Console.WriteLine($"Array with {k} steps to the right  : ");
+            k = k % arr.Length; //to avoid unnecessary rotations
+            int[] rotated = new int[arr.Length];
             for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine($"Index {i + 1}: {arr[i]+k}");
+                rotated[(i + k) % arr.Length] = arr[i];
+            }
+            Console.WriteLine($"Array with {k} steps to the right  : ");
+            for (int i = 0; i < rotated.Length; i++)
+            {
+                Console.WriteLine($"Index {i + 1}: {rotated[i]}");
             }
         }
         static void q5()
@@ -313,8 +318,11 @@ namespace ExtraTask
             {
                 if (arr[i] == arr[i + 1])
                 {
-                    count++;
-                    Console.WriteLine(arr[i] + " ");
+                    if (i == 0 || arr[i] != arr[i - 1]) //check for duplcation 
+                    {
+                        Console.WriteLine(arr[i]);
+                        count++;
+                    }
                 }
             }
             Console.WriteLine("Total number of duplicate = " + count);
