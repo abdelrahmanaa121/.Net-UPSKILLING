@@ -16,15 +16,15 @@ namespace ExtraTask
             //q2();
             //Console.WriteLine("3.Count Even and Odd Numbers");
             //q3();
-            //Console.WriteLine("4.Rotate Array to the Right");
-            //q4();
+            Console.WriteLine("4.Rotate Array to the Right");
+            q4();
             //Console.WriteLine("5.Check if Array is Sorted");
             //q5();
             //Console.WriteLine("6.Find Row with Maximum Sum (2D Array)");
             //q6();
             //Console.WriteLine("7.Transpose a Matrix(2D Array)");
             //q7();
-            //Console.WriteLine("8.Find Duplicate Elements in Array)");
+            Console.WriteLine("8.Find Duplicate Elements in Array)");
             q8();
             //Console.WriteLine("9. Pascal’s Triangle (2D Array))");
             //q9();
