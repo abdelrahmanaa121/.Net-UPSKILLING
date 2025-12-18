@@ -46,7 +46,7 @@ namespace Simple_Bank_Account
             }
             if (withdraw > Balance)
             {
-                Console.WriteLine("Can not Withdrwa");
+                Console.WriteLine("Can not Withdraw");
                 return;
             }
             Balance -= withdraw;

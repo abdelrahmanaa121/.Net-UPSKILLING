@@ -34,7 +34,7 @@ namespace Simple_Bank_Account
             else
             {
                 Mileage += distance;
-                Console.WriteLine($"Drove:{distance} km, Total Milage{Mileage} km");
+                Console.WriteLine($"Drove: {distance} km, Total Milage {Mileage} km");
             }
 
         }
