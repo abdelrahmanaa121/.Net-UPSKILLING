@@ -44,9 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Humen.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vechile.cs" />
+    <Compile Include="WR.cs" />
+    <Compile Include="xyz.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
