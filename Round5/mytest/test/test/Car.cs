@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace test
 {
-    internal class Car : Vechile
+    internal class Car : IMovable,IComparable//: GameMember 
     {
         public string Color { get; set; }
-        public override void Move()
+        public int Model { get; set; }
+        public string Make { get; set; }
+
+        public int CompareTo(object obj)
         {
-            Console.WriteLine("car is moving");
+            return 0;
         }
-        public override void test()
+
+        public void Move()//عملت امبلمبنت للانترفيس
         {
-            Console.WriteLine("test in car");
+            Console.WriteLine("car is moving"); 
         }
+
+        //public override void Move()
+        //{
+        //    Console.WriteLine("car is moving");
+        //}
+        //    public override void test()
+        //    {
+        //        Console.WriteLine("test in car");
+        //    }
     }
 }
