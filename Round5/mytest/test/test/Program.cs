@@ -8,6 +8,35 @@ namespace test
 {
     internal class Program
     {
+        #region Generics functions
+        static void Swapint(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+        static void Swapfloat(ref float x, ref float y)
+        {
+            float temp = x;
+            x = y;
+            y = temp;
+        }
+        static void Swapobj(object x, object y)
+        {
+            object temp = x;
+            x = y;
+            y = temp;
+        }
+        //template in c++,in c# >> generics
+        static void SwapT<T>(T x, T y)
+        {
+            T temp = x;
+            x = y;
+            y = temp;
+        }
+        #endregion
+
+
         static void Main(string[] args)
         {
             #region LEC1-LEC3
@@ -145,10 +174,54 @@ namespace test
 
             #region Generics
 
+            //swap
 
+            //int x = 5;
+            //int y = 10;
+            //Swapint(ref x,ref y);
+            //Swapobj(x, y);
+            //SwapT<int>(x, y);
+            //SwapT<double>(x, y);
+            //Console.WriteLine($"swap: x = {x} & y = {y}");
 
+            ////Array (Dynamic Size)
+            //Mylist mylist = new Mylist();
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //الجاهز بقا منها معمول و اسمه ليست
+            //List<>
+
+            ////generics in my list
+            //Mylist<int> mylist = new Mylist<int>();
+            //mylist.Add(10);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+            //mylist.Add(15);
+
+            ////advanvanced list
+            //MyAdvancedList<Employee> myAdvancedList = new MyAdvancedList<Employee>();
+            //myAdvancedList.Add(50);
+            //myAdvancedList.Add(50);
+            //myAdvancedList.Add(50);
+            //myAdvancedList.Add(50);
+            //myAdvancedList.Add(50);
+            //myAdvancedList.Resize();
 
             #endregion
+            #region IEnumrable
+
+            #endregion
+
+
         }
     }
 }

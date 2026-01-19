@@ -51,6 +51,8 @@
     <Compile Include="GameMember.cs" />
     <Compile Include="Humen.cs" />
     <Compile Include="IMovable.cs" />
+    <Compile Include="MyAdvancedList.cs" />
+    <Compile Include="Mylist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vechile.cs" />
