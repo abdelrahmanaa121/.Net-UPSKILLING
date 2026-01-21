@@ -53,11 +53,14 @@
     <Compile Include="IMovable.cs" />
     <Compile Include="MyAdvancedList.cs" />
     <Compile Include="Mylist.cs" />
+    <Compile Include="Mylist_For_IEnumrable.cs" />
+    <Compile Include="Outer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vechile.cs" />
     <Compile Include="WR.cs" />
     <Compile Include="xyz.cs" />
+    <Compile Include="XYZ_for_IEnumrable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

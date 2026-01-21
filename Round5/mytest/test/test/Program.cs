@@ -218,7 +218,39 @@ namespace test
 
             #endregion
             #region IEnumrable
-            
+            Mylist_For_IEnumrable mylist_For_IEnumrable = new Mylist_For_IEnumrable();
+            mylist_For_IEnumrable.Add(1);
+            mylist_For_IEnumrable.Add(10);
+            mylist_For_IEnumrable.Add(15);
+            mylist_For_IEnumrable.Add(11);
+            mylist_For_IEnumrable.Add(31);
+            mylist_For_IEnumrable.Add(181);
+            mylist_For_IEnumrable.Add(8);
+            //Console.WriteLine(mylist_For_IEnumrable.GetByIndex(2));
+
+            //for (int i = 0; i < mylist_For_IEnumrable.GetCount(); i++)
+            //{
+            //    Console.WriteLine(mylist_For_IEnumrable.GetByIndex(i));
+            //}
+
+            //foreach (var item in mylist_For_IEnumrable)
+            //{
+
+            //}
+            //Outer outer = new Outer();
+            ////outer.x مش هشوفها 
+            ////inner مش هشوفها برضو
+            //outer.GetInner();
+
+            //var res = outer.GetInner();
+            //res.ToString();
+
+            foreach (var item in mylist_For_IEnumrable)
+            {
+                Console.WriteLine(item);
+            }
+
+
             #endregion
 
 
