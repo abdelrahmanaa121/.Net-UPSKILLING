@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -217,40 +220,97 @@ namespace test
             //myAdvancedList.Resize();
 
             #endregion
-            #region IEnumrable
-            Mylist_For_IEnumrable mylist_For_IEnumrable = new Mylist_For_IEnumrable();
-            mylist_For_IEnumrable.Add(1);
-            mylist_For_IEnumrable.Add(10);
-            mylist_For_IEnumrable.Add(15);
-            mylist_For_IEnumrable.Add(11);
-            mylist_For_IEnumrable.Add(31);
-            mylist_For_IEnumrable.Add(181);
-            mylist_For_IEnumrable.Add(8);
-            //Console.WriteLine(mylist_For_IEnumrable.GetByIndex(2));
 
-            //for (int i = 0; i < mylist_For_IEnumrable.GetCount(); i++)
-            //{
-            //    Console.WriteLine(mylist_For_IEnumrable.GetByIndex(i));
-            //}
+            #region IEnumrable
+            //Mylist_For_IEnumrable mylist_For_IEnumrable = new Mylist_For_IEnumrable();
+            //mylist_For_IEnumrable.Add(1);
+            //mylist_For_IEnumrable.Add(10);
+            //mylist_For_IEnumrable.Add(15);
+            //mylist_For_IEnumrable.Add(11);
+            //mylist_For_IEnumrable.Add(31);
+            //mylist_For_IEnumrable.Add(181);
+            //mylist_For_IEnumrable.Add(8);
+            ////Console.WriteLine(mylist_For_IEnumrable.GetByIndex(2));
+
+            ////for (int i = 0; i < mylist_For_IEnumrable.GetCount(); i++)
+            ////{
+            ////    Console.WriteLine(mylist_For_IEnumrable.GetByIndex(i));
+            ////}
+
+            ////foreach (var item in mylist_For_IEnumrable)
+            ////{
+
+            ////}
+            ////Outer outer = new Outer();
+            //////outer.x مش هشوفها 
+            //////inner مش هشوفها برضو
+            ////outer.GetInner();
+
+            ////var res = outer.GetInner();
+            ////res.ToString();
 
             //foreach (var item in mylist_For_IEnumrable)
             //{
+            //    Console.WriteLine(item);
+            //}.
 
+            //الكود الي تحت ده هو نفس الفور ايتش بتعمله 
+            ////how to custom write foreach
+            //IEnumerator enumerator = mylist_For_IEnumrable.GetEnumerator();
+            //while (enumerator.MoveNext())
+            //{
+            //    int item = (int)enumerator.Current;
+            //    Console.WriteLine(item);
             //}
-            //Outer outer = new Outer();
-            ////outer.x مش هشوفها 
-            ////inner مش هشوفها برضو
-            //outer.GetInner();
 
-            //var res = outer.GetInner();
-            //res.ToString();
+            #endregion
 
-            foreach (var item in mylist_For_IEnumrable)
+            #region Collections
+            Mylist_For_IEnumrable mylist_For_IEnumrable2 = new Mylist_For_IEnumrable();
+            mylist_For_IEnumrable2.Add(1);
+            mylist_For_IEnumrable2.Add(10);
+            mylist_For_IEnumrable2.Add(15);
+
+            //mylist_For_IEnumrable2[1];
+            //indexer
+            mylist_For_IEnumrable2[1] = 80;
+
+            //collection
+            Collection collection = new Collection();
+            //ICollection,<>
+            //IList
+            //IList<>
+            //array list in not generic
+            ArrayList arrayList = new ArrayList();
+            arrayList.Add(7);
+            arrayList.Add("Hi");
+            arrayList.Add(90.70);
+            arrayList.Add(true);
+            arrayList.Add('A');
+            foreach (var item in arrayList)
+            {
+                Console.WriteLine(item);
+            }
+            //class list is the updated generic 
+            List<int> ints = new List<int>();
+            ints.Add(4);
+            ints.Add(5);
+            ints[0] = 1;
+            foreach (var item in ints)
             {
                 Console.WriteLine(item);
             }
 
+            //stack fifo
+            Stack<int> stack = new Stack<int>();
 
+            //linked list
+            LinkedList<int> linkedlsit = new LinkedList<int>();
+            linkedlsit.AddFirst(5);
+
+            //hashset
+            HashSet<int> hashset = new HashSet<int>();
+            hashset.Add(7);
             #endregion
 
 

@@ -12,6 +12,19 @@ namespace test
         int[] items;
         int index;
 
+        //public int Indexer(int index) 
+        //{
+        //    get { return items[index]; }
+        //    set { items[index] = value; } 
+        //}
+
+        //indexer (special type of prop)
+        public int this [int index]
+        {
+            get { return items[index]; }
+            set { items[index] = value; }
+        }
+
         public Mylist_For_IEnumrable()
         {
             items = new int[5];
@@ -81,7 +94,7 @@ namespace test
 
             public void Reset()
             {
-                throw new NotImplementedException();
+                index = -1;
             }
         }
     }

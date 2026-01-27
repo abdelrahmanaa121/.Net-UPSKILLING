@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +48,7 @@
     <Compile Include="Car.cs" />
     <Compile Include="compare class.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="Employee_for_Collections.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameMember.cs" />
     <Compile Include="Humen.cs" />
