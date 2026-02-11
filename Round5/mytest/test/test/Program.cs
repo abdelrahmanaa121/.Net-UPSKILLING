@@ -39,6 +39,81 @@ namespace test
         }
         #endregion
 
+        #region Delegets
+        delegate bool MyDelegate(int item);
+        delegate bool MyDelegate2(string item);
+        //delegate bool MyDelegate3(List<int> item);
+
+        static bool IsPositive(int number)
+        {
+            return number > 0;
+        }
+        static void DisplayPositive(List<int> numbers)
+        {
+            foreach (int n in numbers)
+            {
+                if (IsPositive(n))
+                {
+                    Console.WriteLine(n);
+                }
+            }
+        }
+
+        static bool IsEven(int number)
+        {
+            return number % 2 == 0;
+        }
+        static void DisplayEvens(List<int> numbers)
+        {
+            foreach (int n in numbers)
+            {
+                if (IsEven(n))
+                {
+                    Console.WriteLine(n);
+                }
+            }
+        }
+        //static void Display(List<int> numbers, IChecker checker)
+        //{
+        //    foreach (int n in numbers)
+        //    {
+        //        if (checker.Check(n))
+        //        {
+        //            Console.WriteLine(n);
+        //        }
+        //    }
+        //}
+
+        //static void Display(List<int> numbers, ??)
+        //{
+        //    foreach (int n in numbers)
+        //    {
+        //        if (??(n))
+        //        {
+        //            Console.WriteLine(n);
+        //        }
+        //    }
+        //}
+        static void Display(List<int> numbers, MyDelegate myDelegate)
+        {
+            foreach (int n in numbers)
+            {
+                if (myDelegate.Invoke (n))
+                {
+                    Console.WriteLine(n);
+                }
+            }
+        }
+
+
+        // ************************** We need One Function to display ********************
+
+        // 1- We Can Make Flag (int or Enum) and Check inside the Display Function  
+
+        // 2- We Can Make Base Class and Inherit from It .. and override on the method Display
+        //    ( Make Interface and make Function Check in it) ===>> the Class Not Entity here .. in Java
+        #endregion
+
 
         static void Main(string[] args)
         {
@@ -266,51 +341,98 @@ namespace test
             #endregion
 
             #region Collections
-            Mylist_For_IEnumrable mylist_For_IEnumrable2 = new Mylist_For_IEnumrable();
-            mylist_For_IEnumrable2.Add(1);
-            mylist_For_IEnumrable2.Add(10);
-            mylist_For_IEnumrable2.Add(15);
+            //Mylist_For_IEnumrable mylist_For_IEnumrable2 = new Mylist_For_IEnumrable();
+            //mylist_For_IEnumrable2.Add(1);
+            //mylist_For_IEnumrable2.Add(10);
+            //mylist_For_IEnumrable2.Add(15);
 
-            //mylist_For_IEnumrable2[1];
-            //indexer
-            mylist_For_IEnumrable2[1] = 80;
+            ////mylist_For_IEnumrable2[1];
+            ////indexer
+            //mylist_For_IEnumrable2[1] = 80;
 
-            //collection
-            Collection collection = new Collection();
-            //ICollection,<>
-            //IList
-            //IList<>
-            //array list in not generic
-            ArrayList arrayList = new ArrayList();
-            arrayList.Add(7);
-            arrayList.Add("Hi");
-            arrayList.Add(90.70);
-            arrayList.Add(true);
-            arrayList.Add('A');
-            foreach (var item in arrayList)
+            ////collection
+            //Collection collection = new Collection();
+            ////ICollection,<>
+            ////IList
+            ////IList<>
+            ////array list in not generic
+            //ArrayList arrayList = new ArrayList();
+            //arrayList.Add(7);
+            //arrayList.Add("Hi");
+            //arrayList.Add(90.70);
+            //arrayList.Add(true);
+            //arrayList.Add('A');
+            //foreach (var item in arrayList)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            ////class list is the updated generic 
+            //List<int> ints = new List<int>();
+            //ints.Add(4);
+            //ints.Add(5);
+            //ints[0] = 1;
+            //foreach (var item in ints)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            ////stack fifo
+            //Stack<int> stack = new Stack<int>();
+
+            ////linked list
+            //LinkedList<int> linkedlsit = new LinkedList<int>();
+            //linkedlsit.AddFirst(5);
+
+            ////hashset
+            //HashSet<int> hashset = new HashSet<int>();
+            //hashset.Add(7);
+            #endregion
+            #region Delegate
+            
+            List<int> numbers = new List<int> {1,5,-8, 2, -5, -4};
+            Postive_Delegete postive_Delegete = new Postive_Delegete();
+            Negative_Delegete negative_Delegete = new Negative_Delegete();
+            DisplayEvens(numbers);
+            DisplayPositive(numbers);
+            //Display(numbers, postive_Delegete);
+            //Display(numbers, negative_Delegete);
+
+            MyDelegate myDelegate = new MyDelegate(IsPositive);
+            MyDelegate2 myDelegate2 = new MyDelegate2(string.IsNullOrEmpty);
+            myDelegate.Invoke(2);
+            myDelegate2.Invoke("Hi");
+            Display(numbers, myDelegate);
+            myDelegate(2);
+
+            int[] ints = { 1, 2, 3, 44, 5, 6 };
+            //MyDelegate @delegate = new MyDelegate (IsPositive);
+            MyDelegate @delegate = (IsEven);
+            Display(numbers, @delegate);
+            //كل الكلام الي فوق اقدر اختصره فالسطر الي تحت
+            Display(numbers, IsPositive);
+            //ممكن اكتب الفانشكن نفسها 
+            Display(numbers, delegate (int item)
             {
-                Console.WriteLine(item);
+                return item % 2 == 0;
             }
-            //class list is the updated generic 
-            List<int> ints = new List<int>();
-            ints.Add(4);
-            ints.Add(5);
-            ints[0] = 1;
-            foreach (var item in ints)
-            {
-                Console.WriteLine(item);
-            }
+            );
+            //ممكن اختصر اكتر 
+            //anonoumes function
+            Display(numbers, item => item % 2 == 0);
+            //lambda exp
+            //item => item % 2 == 0
+            //predifined delegets
 
-            //stack fifo
-            Stack<int> stack = new Stack<int>();
+            //1 - Predicate<int>
+            Predicate<int> predicate = IsPositive;
 
-            //linked list
-            LinkedList<int> linkedlsit = new LinkedList<int>();
-            linkedlsit.AddFirst(5);
+            //2-Func<in,out> or <out>
+            Func<int, string, double, bool, string> func = (int x, string y, double z, bool b) => "Hi";
 
-            //hashset
-            HashSet<int> hashset = new HashSet<int>();
-            hashset.Add(7);
+            //3-Action
+            Action<int> action = (int x) => Console.WriteLine(x);
+            //Action<>
+            Action action1 = () => Console.WriteLine("Hello World");
             #endregion
 
 
