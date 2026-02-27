@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace test
@@ -114,7 +115,93 @@ namespace test
         //    ( Make Interface and make Function Check in it) ===>> the Class Not Entity here .. in Java
         #endregion
 
+        #region Thread
+        static void PrintX()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write("X");
+            }
+        }
+        static void StartThread()
+        {
+            Thread thread = new Thread(PrintX);
+            thread.IsBackground = true;
+            //thread.Join();
+            Console.WriteLine("Thread State ; " + thread.ThreadState);
+            thread.Start();
+            Console.WriteLine("Thread State ; " + thread.ThreadState);
 
+        }
+        static bool printed = false; //flag
+        static object lockObject = new object(); //lock
+        static void PrintMessage()
+        {
+            //codes
+            Console.WriteLine("Hello before PrintMessage");
+            //codes
+            //codes
+            lock (lockObject)
+            {
+                if (!printed)
+                {
+                    printed = true;
+                    Console.WriteLine("Hello from PrintMessage");
+                   
+                }
+            }
+            //codes
+            Console.WriteLine("Hello after PrintMessage");
+            //codes
+            //codes
+
+
+        }
+
+        static void DoJob()
+        {
+            int count = 1;
+            bool flag = true;
+            while (flag)
+            {
+                Console.WriteLine($"Do job for counter {count} Times");
+                count++;
+                Thread.Sleep(100);
+            }
+        }
+
+        #endregion
+        #region Task
+        //types of functions
+        //1-no in or io
+        static void Printx1()
+        {
+            for (int i = 0; i < 10000; i++)
+            {
+                Console.Write("X");
+            }
+        }
+        //2- in & no io
+        static void Printx2(int num)
+        {
+            for (int i = 0; i < num; i++)
+            {
+                Console.Write("X");
+            }
+        }
+        //3- in/io
+        static int Printx3(int num)
+        {
+            int count = 0;
+            for (int i = 0; i < num; i++)
+            {
+                count++;
+                Console.Write("X");
+            }
+            return count;
+        }
+
+        #endregion
         static void Main(string[] args)
         {
             #region LEC1-LEC3
@@ -387,53 +474,139 @@ namespace test
             //HashSet<int> hashset = new HashSet<int>();
             //hashset.Add(7);
             #endregion
+
             #region Delegate
-            
-            List<int> numbers = new List<int> {1,5,-8, 2, -5, -4};
-            Postive_Delegete postive_Delegete = new Postive_Delegete();
-            Negative_Delegete negative_Delegete = new Negative_Delegete();
-            DisplayEvens(numbers);
-            DisplayPositive(numbers);
-            //Display(numbers, postive_Delegete);
-            //Display(numbers, negative_Delegete);
 
-            MyDelegate myDelegate = new MyDelegate(IsPositive);
-            MyDelegate2 myDelegate2 = new MyDelegate2(string.IsNullOrEmpty);
-            myDelegate.Invoke(2);
-            myDelegate2.Invoke("Hi");
-            Display(numbers, myDelegate);
-            myDelegate(2);
+            //List<int> numbers = new List<int> {1,5,-8, 2, -5, -4};
+            //Postive_Delegete postive_Delegete = new Postive_Delegete();
+            //Negative_Delegete negative_Delegete = new Negative_Delegete();
+            //DisplayEvens(numbers);
+            //DisplayPositive(numbers);
+            ////Display(numbers, postive_Delegete);
+            ////Display(numbers, negative_Delegete);
 
-            int[] ints = { 1, 2, 3, 44, 5, 6 };
-            //MyDelegate @delegate = new MyDelegate (IsPositive);
-            MyDelegate @delegate = (IsEven);
-            Display(numbers, @delegate);
-            //كل الكلام الي فوق اقدر اختصره فالسطر الي تحت
-            Display(numbers, IsPositive);
-            //ممكن اكتب الفانشكن نفسها 
-            Display(numbers, delegate (int item)
-            {
-                return item % 2 == 0;
-            }
-            );
-            //ممكن اختصر اكتر 
-            //anonoumes function
-            Display(numbers, item => item % 2 == 0);
-            //lambda exp
-            //item => item % 2 == 0
-            //predifined delegets
+            //MyDelegate myDelegate = new MyDelegate(IsPositive);
+            //MyDelegate2 myDelegate2 = new MyDelegate2(string.IsNullOrEmpty);
+            //myDelegate.Invoke(2);
+            //myDelegate2.Invoke("Hi");
+            //Display(numbers, myDelegate);
+            //myDelegate(2);
 
-            //1 - Predicate<int>
-            Predicate<int> predicate = IsPositive;
+            //int[] ints = { 1, 2, 3, 44, 5, 6 };
+            ////MyDelegate @delegate = new MyDelegate (IsPositive);
+            //MyDelegate @delegate = (IsEven);
+            //Display(numbers, @delegate);
+            ////كل الكلام الي فوق اقدر اختصره فالسطر الي تحت
+            //Display(numbers, IsPositive);
+            ////ممكن اكتب الفانشكن نفسها 
+            //Display(numbers, delegate (int item)
+            //{
+            //    return item % 2 == 0;
+            //}
+            //);
+            ////ممكن اختصر اكتر 
+            ////anonoumes function
+            //Display(numbers, item => item % 2 == 0);
+            ////lambda exp
+            ////item => item % 2 == 0
+            ////predifined delegets
 
-            //2-Func<in,out> or <out>
-            Func<int, string, double, bool, string> func = (int x, string y, double z, bool b) => "Hi";
+            ////1 - Predicate<int>
+            //Predicate<int> predicate = IsPositive;
 
-            //3-Action
-            Action<int> action = (int x) => Console.WriteLine(x);
-            //Action<>
-            Action action1 = () => Console.WriteLine("Hello World");
+            ////2-Func<in,out> or <out>
+            //Func<int, string, double, bool, string> func = (int x, string y, double z, bool b) => "Hi";
+
+            ////3-Action
+            //Action<int> action = (int x) => Console.WriteLine(x);
+            ////Action<>
+            //Action action1 = () => Console.WriteLine("Hello World");
             #endregion
+
+            #region Threads
+
+            //Console.WriteLine("Hello World");
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    Console.Write("X");
+            //}
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    Console.Write("Y");
+            //}
+
+            //PrintX();
+            //PrintY();
+
+            //........using thread...........
+
+            //-------1-thread in main--------
+            //Thread thread = new Thread(PrintX);
+            //thread.IsBackground = true;
+            ////thread.Join();
+            //Console.WriteLine("Thread State ; " + thread.ThreadState);
+            //thread.Start();
+            //Console.WriteLine("Thread State ; " + thread.ThreadState);
+
+            //------2-thraed inside thread-------
+
+            //Thread thread = new Thread(StartThread);
+            //thread.Start();
+
+            //StartThread();
+
+            //-------3-control thread--------
+
+            //A-thread.join
+
+            //Thread thread = new Thread(PrintX);
+            //thread.Start();
+
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    Console.Write("Y");
+            //    if (i==5)
+            //    {
+            //        Console.WriteLine("Main thread waiting for print x thread to complete..");
+            //        thread.Join();
+            //        //thread.Join(1000); ms in time
+            //    }
+            //}
+
+            //B-thread.sleep
+
+            //DoJob();
+            //Thread DOJOB_thread = new Thread(DoJob);
+            //DOJOB_thread.Start();
+
+            //for (int i = 0; i < 100000; i++)
+            //{
+            //    Console.Write("Y");
+            //}
+
+            ////-------4-Annons func with lambda exp--------
+
+            //Thread thread = new Thread(() => PrintX());
+
+            ////-------5- Thread Safe--------
+            Thread threadA = new Thread(PrintMessage);
+            threadA.Start();
+            Thread threadB = new Thread(PrintMessage);
+            threadB.Start();
+            ////lock 
+
+            #endregion
+
+            #region Task
+
+            Task.Run(() => Printx2(1000));
+
+
+
+            #endregion
+
+
+
 
 
         }
