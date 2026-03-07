@@ -61,6 +61,9 @@
             //Display(ints, n => n > 0);
             /////sepeartion of concern
             List<int> PositiveNumbers = Filter(ints, n => n > 0);
+            ////extension methods
+            List<int> PositiveNumbers2 = ints.Filter( n => n > 0);
+
             foreach (var number in PositiveNumbers)
             {
                 Console.WriteLine(number);
