@@ -200,6 +200,31 @@ namespace test
             }
             return count;
         }
+        static async Task StartJobAsync()
+        {
+            /*Task<int> t1 = Task.Run(() => Printx3(1000));
+
+            ////Awaiter
+            var awiter = t1.GetAwaiter();
+            awiter.OnCompleted(() => Test(t1.Result));*/
+
+
+
+            /*Task<int> t1 = Task.Run(() => Printx3(1000));
+           var awiter = t1.GetAwaiter();
+           awiter.OnCompleted(() =>
+           {
+               int result = awiter.GetResult();
+               Console.WriteLine($"\n\nx printed {result} times");
+           });*/
+
+            var res = await Task.Run(() => Printx3(1000));
+            Console.WriteLine($"\n\nx printed {res} times");
+        }
+        static void Test(int result)
+        {
+            Console.WriteLine($"\n\nx printed {result} times");
+        }
 
         #endregion
         static void Main(string[] args)
@@ -589,23 +614,50 @@ namespace test
             //Thread thread = new Thread(() => PrintX());
 
             ////-------5- Thread Safe--------
-            Thread threadA = new Thread(PrintMessage);
+            /*Thread threadA = new Thread(PrintMessage);
             threadA.Start();
             Thread threadB = new Thread(PrintMessage);
-            threadB.Start();
+            threadB.Start();*/
             ////lock 
 
             #endregion
 
             #region Task
 
-            Task.Run(() => Printx2(1000));
+            //Task.Run(() => Printx2(1000));
+
+            //return
+            //StartJobAsync();
+            //var res = StartJobAsync();
+
+            //res.GetAwaiter();
+
+            /*Task<int> t1 = Task.Run(() => Printx3(1000));
+
+
+            //var res = t1.Result;
+            //Console.WriteLine($"\nCount: {res}");
+
+            ////Awaiter
+            var awiter = t1.GetAwaiter();
+            awiter.OnCompleted(() =>
+            {
+                int result = awiter.GetResult();
+                Console.WriteLine($"\n\nx printed {result} times");
+            });*/
+
+            /*for (int i = 0; i < 1500; i++)
+            {
+                Console.Write("Y");
+            }*/
+            #endregion
+
+            #region C# new
+
 
 
 
             #endregion
-
-
 
 
 
