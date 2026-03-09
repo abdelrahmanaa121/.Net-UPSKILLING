@@ -96,12 +96,13 @@
                 #endregion
 
                 #region Sequence
-                IEnumerable<int> seq = sequence();
+                //IEnumerable<int> seq = sequence();
 
-                foreach (var item in seq)
-                {
-                    Console.WriteLine(item);
-                }
+                //foreach (var item in seq)
+                //{
+                    
+                //Console.WriteLine(item);
+                //}
                 #endregion
             }
     }
