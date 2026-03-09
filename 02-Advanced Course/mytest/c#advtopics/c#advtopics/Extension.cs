@@ -20,5 +20,26 @@ namespace c_advtopics
             }
             return result;
         }
+        public static string RemoveVowels(this string str)
+        {
+            char[] vowles = { 'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u' };
+            StringBuilder sb = new StringBuilder();
+            foreach (var c in str)
+            {
+                if (!vowles.Contains(c))
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
+        }
+        public static char GetMiddleChar(this string str)
+        {
+            return str[str.Length / 2];
+        }
+        public static char GetASCI(this char c)
+        {
+            return (char)(int)c;
+        }
     }
 }
