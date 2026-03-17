@@ -7,13 +7,13 @@
             Console.WriteLine("Hello, World!");
 
         }
-        static void Add()
+        /*static void Add()
         {
             int first = int.Parse(Console.ReadLine());
             int sec = int.Parse(Console.ReadLine());
             int res = first+sec;
             Console.WriteLine(res);
-        }
+        }*/
         static int Add_withinput(int first ,int sec)
         {
             int res = first + sec;
@@ -39,7 +39,7 @@
         {
             Console.WriteLine("Start");
             PrintHello();
-            Add();
+            //Add();
             Add_withinput(8,7);
             Add_withinput(5.6,8.7);
             bool even = Is_Even(78);
