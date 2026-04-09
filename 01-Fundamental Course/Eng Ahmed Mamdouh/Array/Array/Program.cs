@@ -10,6 +10,7 @@ namespace Array
     {
         static void Main(string[] args)
         {
-           
+
+        }
     }
 }
