@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _4_Relations
+{
+    internal class Instructor
+    {
+        public void writeOnBoard(Marker marker)
+        {
+
+        }
+        public void OpenLaptop() { }
+        public void Attend() { }
+    }
+}
